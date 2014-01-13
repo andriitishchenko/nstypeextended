@@ -1,0 +1,4 @@
+nstypeextended
+==============
+
+Type Extended class
