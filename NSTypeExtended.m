@@ -1,6 +1,5 @@
 //
 //  NSStringExtended.m
-//  Pizza-Pirat
 //
 //  Created by AndruX on 11.01.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
