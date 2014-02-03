@@ -11,12 +11,36 @@
 
 -(CGFloat)getTextHeightForFont:(UIFont*)font forWidth:(CGFloat)rect_width
 {
-    CGFloat minHeight = font.pointSize+4 ;
-    CGSize size = [self sizeWithFont:font constrainedToSize:CGSizeMake(rect_width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    NSLog(@"reqest width = %f width = %f, height = %f",rect_width, size.width, size.height);
-    CGFloat tmp =size.height+50;
-    CGFloat rowHeight = MAX(tmp, minHeight);
-    return rowHeight;
+    CGSize maxSize = CGSizeMake(ceilf(rect_width), CGFLOAT_MAX);
+    CGSize expectSize = [self boundingRectWithSize: maxSize
+                    options: NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin
+                    attributes: @{ NSFontAttributeName : font }
+                    context: nil].size;
+    
+    return ceilf(expectSize.height);
+}
+
+-(UIImage*)generateQR
+{
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    [filter setDefaults];
+    
+    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    [filter setValue:data forKey:@"inputMessage"];
+    
+    CIImage *outputImage = [filter outputImage];
+    
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef cgImage = [context createCGImage:outputImage
+                                       fromRect:[outputImage extent]];
+    
+    UIImage *image = [UIImage imageWithCGImage:cgImage
+                                         scale:1.
+                                   orientation:UIImageOrientationUp];
+    
+    UIImage *resized = [image resizeImageWithQuality:kCGInterpolationNone
+                                                rate:5.0];
+    return resized;
 }
 
 -(NSString *)urlEncode{
@@ -39,7 +63,10 @@
             result[12], result[13], result[14], result[15]
             ]; 
 }
-
+-(NSString *)base64
+{
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
+}
 -(NSString*)md5FileName
 {
     NSString*fileName = [self lastPathComponent];            
@@ -216,14 +243,14 @@
 @end
 
 @implementation UIColor (Extended)
--(NSString *) toWeb
+-(NSString *) toHEX
 {
     return [NSString stringWithFormat:@"#%02X%02X%02X", (int)((CGColorGetComponents(self.CGColor))[0]*255.0), (int)((CGColorGetComponents(self.CGColor))[1]*255.0), (int)((CGColorGetComponents(self.CGColor))[2]*255.0)];
 }
 @end
 
 @implementation NSDictionary (Extended)
--(NSData*)toJSON
+-(NSData*)toJSONData
 {
     NSError* error = nil;
     id result = [NSJSONSerialization dataWithJSONObject:self options:kNilOptions error:&error];
@@ -239,19 +266,10 @@
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
--(NSData*)toData
-{
-//   NSMutableData *data = [NSMutableData new];
-//    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-//    [archiver encodeObject:self forKey:@"pack"];
-//    [archiver finishEncoding];
-    return [NSKeyedArchiver archivedDataWithRootObject:self];
-}
-
 @end
 
 @implementation NSDate (Extended)
--(BOOL)isEarlyLast:(NSInteger)days
+-(BOOL)isEarlyLastDays:(NSInteger)days
 {
     NSDate *date = [[NSDate date] dateByAddingTimeInterval: -86400.0*days];
     return ([self compare:date] == NSOrderedAscending);
@@ -287,23 +305,50 @@
 
 @end
 
+@implementation NSObject (Extended)
+-(NSData*)archive{
+    return [NSKeyedArchiver archivedDataWithRootObject:self];
+}
+-(NSObject*)valueForNil:(NSObject*)value{
+    return self==nil?value:self;
+}
+
+@end
 
 @implementation NSData (Extended)
--(NSDictionary*)toDictionary{
-    return (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:self];
+-(id)unArchive{
+    return [NSKeyedUnarchiver unarchiveObjectWithData:self];
 }
 
 -(NSString*)toStringUTF8
 {
-//    return [NSString st]
-//NSString *jsonString =
-       return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+    return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
 }
 @end
 
 
 
 @implementation UIImage (Extended)
+
+- (UIImage *)resizeImageWithQuality:(CGInterpolationQuality)quality
+                    rate:(CGFloat)rate
+{
+	UIImage *resized = nil;
+	CGFloat width = self.size.width * rate;
+	CGFloat height = self.size.height * rate;
+	
+	UIGraphicsBeginImageContext(CGSizeMake(width, height));
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	CGContextSetInterpolationQuality(context, quality);
+	[self drawInRect:CGRectMake(0, 0, width, height)];
+	resized = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	return resized;
+}
+
+
+
 
 - (UIImage *) toGrayscale{
     const int RED = 1;
@@ -387,33 +432,33 @@
 }
 @end
 
-@implementation UIView (Extended)
--(UIView*)clone{
-    UIView*newview = [[UIView alloc] initWithFrame:self.bounds];
-    newview = self;
-    return newview;
-//    NSData *tmp = [NSKeyedArchiver archivedDataWithRootObject:self];
-//    UIView *controller = [NSKeyedUnarchiver unarchiveObjectWithData:tmp];
-//    return controller;
-}
-@end
+//@implementation UIView (Extended)
+//-(UIView*)clone{
+//    UIView*newview = [[UIView alloc] initWithFrame:self.bounds];
+//    newview = self;
+//    return newview;
+////    NSData *tmp = [NSKeyedArchiver archivedDataWithRootObject:self];
+////    UIView *controller = [NSKeyedUnarchiver unarchiveObjectWithData:tmp];
+////    return controller;
+//}
+//@end
 
 @implementation NSArray (Extended)
--(NSArray*)findObjectWithKey:(NSString*)key  Value:(NSObject*)Value{
+-(NSArray*)findItemWithKey:(NSString*)key  Value:(NSObject*)Value{
     NSPredicate *p = [NSPredicate predicateWithFormat:@"%@=%@",key,Value];
     NSArray *filtered = [self filteredArrayUsingPredicate:p];
     return filtered;
 }
--(NSObject*)findObjectFirstWithKey:(NSString*)key  Value:(NSObject*)Value{
-    NSArray*filtered = [self findObjectWithKey:key Value:Value];
+-(NSObject*)findFirstItemWithKey:(NSString*)key  Value:(NSObject*)Value{
+    NSArray*filtered = [self findItemWithKey:key Value:Value];
     if (filtered) {
         return filtered[0];
     }
     return 0;
 }
--(BOOL)hasObjectWithKey:(NSString*)key  Value:(NSObject*)Value
+-(BOOL)hasItemWithKey:(NSString*)key  Value:(NSObject*)Value
 {
-    NSArray*filtered = [self findObjectWithKey:key Value:Value];
+    NSArray*filtered = [self findItemWithKey:key Value:Value];
     if (filtered) {
         return YES;
     }

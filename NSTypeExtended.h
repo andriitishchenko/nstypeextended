@@ -4,9 +4,18 @@
 //
 
 #import <Foundation/Foundation.h>
+
+
+
+@interface NSObject (Extended)
+-(NSData*)archive;
+-(NSObject*)valueForNil:(NSObject*)value;
+@end
+
 @interface NSString (Extended)
 -(NSString *)urlEncode;
 -(NSString *)md5;
+-(NSString *)base64;
 -(NSString*)md5FileName;
 -(bool)isContainSubstring:(NSString*)_subtring;
 -(NSString*)extractFilename;
@@ -24,17 +33,17 @@
 +(NSString*)guid;
 -(NSDate*)toDateWithFormat:(NSString*)format;
 -(CGFloat)getTextHeightForFont:(UIFont*)font forWidth:(CGFloat)rect_width;
+-(UIImage*)generateQR;
 
 @end
 
 @interface UIColor (Extended)
--(NSString *) toWeb;
+-(NSString *)toHEX;
 @end
 
 @interface NSDictionary (Extended)
--(NSData*)toJSON;
+-(NSData*)toJSONData;
 -(NSString*)toJSONString;
--(NSData*)toData;
 @end
 
 @interface NSDate (Extended)
@@ -44,12 +53,17 @@
 @end
 
 @interface NSData (Extended)
--(NSDictionary*)toDictionary;
 -(NSString*)toStringUTF8;
+-(id)unArchive;
 @end
 
 @interface UIImage (Extended)
+//also http://adcdownload.apple.com/wwdc_2013/wwdc_2013_sample_code/ios_uiimageeffects.zip
+
 - (UIImage *) toGrayscale;
+// Resize without interpolating
+- (UIImage *)resizeImageWithQuality:(CGInterpolationQuality)quality rate:(CGFloat)rate;
+
 @end
 
 
@@ -57,12 +71,12 @@
 -(NSUInteger)hash;
 @end
 
-@interface UIView (Extended)
--(UIView*)clone;
-@end
+//@interface UIView (Extended)
+//-(UIView*)clone;
+//@end
 
 @interface NSArray (Extended)
--(NSArray*)findObjectWithKey:(NSString*)key Value:(NSObject*)Value;
--(NSObject*)findObjectFirstWithKey:(NSString*)key  Value:(NSObject*)Value;
--(BOOL)hasObjectWithKey:(NSString*)key Value:(NSObject*)Value;
+-(NSArray*)findItemWithKey:(NSString*)key Value:(NSObject*)Value;
+-(NSObject*)findFirstItemWithKey:(NSString*)key  Value:(NSObject*)Value;
+-(BOOL)hasItemWithKey:(NSString*)key Value:(NSObject*)Value;
 @end
