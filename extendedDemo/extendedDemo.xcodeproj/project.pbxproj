@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4AD06D1F197ED0A90037A8E8 /* NSTypeExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1A197ED0A90037A8E8 /* NSTypeExtended.m */; };
-		4AD06D20197ED0A90037A8E8 /* NSTypeExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1A197ED0A90037A8E8 /* NSTypeExtended.m */; };
+		4AD06D1F197ED0A90037A8E8 /* NSMultiTypeExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1A197ED0A90037A8E8 /* NSMultiTypeExtended.m */; };
+		4AD06D20197ED0A90037A8E8 /* NSMultiTypeExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1A197ED0A90037A8E8 /* NSMultiTypeExtended.m */; };
 		4AD06D21197ED0A90037A8E8 /* UIButton+isSelected.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1C197ED0A90037A8E8 /* UIButton+isSelected.m */; };
 		4AD06D22197ED0A90037A8E8 /* UIButton+isSelected.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1C197ED0A90037A8E8 /* UIButton+isSelected.m */; };
 		4AD06D23197ED0A90037A8E8 /* UIViewController+ViewControllerCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1E197ED0A90037A8E8 /* UIViewController+ViewControllerCategory.m */; };
@@ -50,8 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4AD06D19197ED0A90037A8E8 /* NSTypeExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTypeExtended.h; sourceTree = "<group>"; };
-		4AD06D1A197ED0A90037A8E8 /* NSTypeExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTypeExtended.m; sourceTree = "<group>"; };
+		4ACA545B197EFFD000C7D976 /* NSTypeExtended.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTypeExtended.h; sourceTree = "<group>"; };
+		4AD06D19197ED0A90037A8E8 /* NSMultiTypeExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMultiTypeExtended.h; sourceTree = "<group>"; };
+		4AD06D1A197ED0A90037A8E8 /* NSMultiTypeExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMultiTypeExtended.m; sourceTree = "<group>"; };
 		4AD06D1B197ED0A90037A8E8 /* UIButton+isSelected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+isSelected.h"; sourceTree = "<group>"; };
 		4AD06D1C197ED0A90037A8E8 /* UIButton+isSelected.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+isSelected.m"; sourceTree = "<group>"; };
 		4AD06D1D197ED0A90037A8E8 /* UIViewController+ViewControllerCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ViewControllerCategory.h"; sourceTree = "<group>"; };
@@ -119,8 +120,8 @@
 			children = (
 				4AD06D2E197ED3F50037A8E8 /* UIView+blur.h */,
 				4AD06D2F197ED3F50037A8E8 /* UIView+blur.m */,
-				4AD06D19197ED0A90037A8E8 /* NSTypeExtended.h */,
-				4AD06D1A197ED0A90037A8E8 /* NSTypeExtended.m */,
+				4AD06D19197ED0A90037A8E8 /* NSMultiTypeExtended.h */,
+				4AD06D1A197ED0A90037A8E8 /* NSMultiTypeExtended.m */,
 				4AD06D25197ED2670037A8E8 /* NSUserDefaults+Convenience.h */,
 				4AD06D28197ED2670037A8E8 /* NSUserDefaults+Convenience.m */,
 				4AD06D1B197ED0A90037A8E8 /* UIButton+isSelected.h */,
@@ -133,6 +134,7 @@
 				4AD06D1E197ED0A90037A8E8 /* UIViewController+ViewControllerCategory.m */,
 				4AD06D31197ED9D20037A8E8 /* UIImage+sizing.h */,
 				4AD06D32197ED9D20037A8E8 /* UIImage+sizing.m */,
+				4ACA545B197EFFD000C7D976 /* NSTypeExtended.h */,
 			);
 			name = src;
 			path = ../src;
@@ -330,7 +332,7 @@
 				4AD06D2D197ED2670037A8E8 /* UITextField+UITextField_padding.m in Sources */,
 				4AD06D21197ED0A90037A8E8 /* UIButton+isSelected.m in Sources */,
 				4AE76D72189F9A6E0029D605 /* main.m in Sources */,
-				4AD06D1F197ED0A90037A8E8 /* NSTypeExtended.m in Sources */,
+				4AD06D1F197ED0A90037A8E8 /* NSMultiTypeExtended.m in Sources */,
 				4AD06D23197ED0A90037A8E8 /* UIViewController+ViewControllerCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +343,7 @@
 			files = (
 				4AE76D8F189F9A6E0029D605 /* extendedDemoTests.m in Sources */,
 				4AD06D24197ED0A90037A8E8 /* UIViewController+ViewControllerCategory.m in Sources */,
-				4AD06D20197ED0A90037A8E8 /* NSTypeExtended.m in Sources */,
+				4AD06D20197ED0A90037A8E8 /* NSMultiTypeExtended.m in Sources */,
 				4AD06D22197ED0A90037A8E8 /* UIButton+isSelected.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

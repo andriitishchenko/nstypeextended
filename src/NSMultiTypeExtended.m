@@ -5,9 +5,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "NSTypeExtended.h"
+#import "NSMultiTypeExtended.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "UIImage+sizing.h"
+
 @implementation NSString (Extended)
 
 -(CGFloat)getTextHeightForFont:(UIFont*)font forWidth:(CGFloat)rect_width
