@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (sizing)
+@interface UIImage (extended)
 //also http://adcdownload.apple.com/wwdc_2013/wwdc_2013_sample_code/ios_uiimageeffects.zip
 
 - (UIImage *) toGrayscale;
@@ -17,4 +17,6 @@
 - (UIImage *)imageByCroppingSquareWithSize:(CGSize)size;
 + (UIImage*)getScreenshot;
 - (UIImage*)getSubimageWithRect:(CGRect)rect;
+- (UIImage *)normalizedImage;
+- (UIImage *)fixOrientation;
 @end
