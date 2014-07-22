@@ -14,7 +14,7 @@
  *
  *  @return NSData
  */
--(NSData*)archive;
+-(NSData*)toData;
 
 /**
  *  Check object value if nil.
@@ -27,6 +27,14 @@
 @end
 
 @interface NSString (Extended)
+
+/**
+ *  Validate string url
+ *
+ *  @return BOOL
+ */
+-(BOOL)isValidURL;
+
 /**
  *  Convert string to url encoded string
  *
@@ -202,7 +210,7 @@
  *
  *  @return NSData or nil
  */
--(NSData*)toJSONData;
+-(NSData*)toJSON;
 
 /**
  *  Convert NSDictionary to NSString
@@ -210,6 +218,9 @@
  *  @return JSON string
  */
 -(NSString*)toJSONString;
+
+-(NSData*)toData;
+-(NSString*)queryString;
 @end
 
 @interface NSDate (Extended)
@@ -255,6 +266,8 @@
  *  @return object
  */
 -(id)unArchive;
+
+-(NSDictionary*)toDictionary;
 @end
 
 @interface NSIndexPath (Extended)

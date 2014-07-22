@@ -11,6 +11,14 @@
 
 @implementation NSString (Extended)
 
+-(BOOL)isValidURL
+{
+    NSString *urlRegEx =
+    @"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
+    NSPredicate *urlPredic = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+    return [urlPredic evaluateWithObject:self];
+}
+
 -(CGFloat)getTextHeightForFont:(UIFont*)font forWidth:(CGFloat)rect_width
 {
     CGSize maxSize = CGSizeMake(ceilf(rect_width), CGFLOAT_MAX);
@@ -252,7 +260,7 @@
 @end
 
 @implementation NSDictionary (Extended)
--(NSData*)toJSONData
+-(NSData*)toJSON
 {
     NSError* error = nil;
     id result = [NSJSONSerialization dataWithJSONObject:self options:kNilOptions error:&error];
@@ -267,6 +275,42 @@
     if (error != nil) return nil;
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
+
+-(NSData*)toData
+{
+    //   NSMutableData *data = [NSMutableData new];
+    //    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    //    [archiver encodeObject:self forKey:@"pack"];
+    //    [archiver finishEncoding];
+    return [NSKeyedArchiver archivedDataWithRootObject:self];
+}
+
+- (NSString *)queryString
+{
+    NSMutableString *queryString = nil;
+    NSArray *keys = [self allKeys];
+    
+    if ([keys count] > 0) {
+        for (id key in keys) {
+            id value = [self objectForKey:key];
+            if (nil == queryString) {
+                queryString = [NSMutableString string];
+                [queryString appendFormat:@"?"];
+            } else {
+                [queryString appendFormat:@"&"];
+            }
+            
+            if (nil != key && nil != value) {
+                [queryString appendFormat:@"%@=%@", [key urlEncode], [value urlEncode]];
+            } else if (nil != key) {
+                [queryString appendFormat:@"%@", [key urlEncode]];
+            }
+        }
+    }
+    
+    return queryString;
+}
+
 
 @end
 
@@ -308,7 +352,7 @@
 @end
 
 @implementation NSObject (Extended)
--(NSData*)archive{
+-(NSData*)toData{
     return [NSKeyedArchiver archivedDataWithRootObject:self];
 }
 -(NSObject*)valueForNil:(NSObject*)value{
@@ -325,6 +369,10 @@
 -(NSString*)toStringUTF8
 {
     return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+}
+
+-(NSDictionary*)toDictionary{
+    return (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:self];
 }
 @end
 
