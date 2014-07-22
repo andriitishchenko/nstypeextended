@@ -133,7 +133,7 @@
  *
  *  @param param list of items
  *
- *  @return <#return value description#>
+ *  @return string
  */
 -(NSString*)append:(NSString*)param, ...;
 
@@ -219,7 +219,18 @@
  */
 -(NSString*)toJSONString;
 
+/**
+ *  NSKeyedArchiver archive
+ *
+ *  @return archived NSData
+ */
 -(NSData*)toData;
+
+/**
+ *  Convert dictionary to url parameters
+ *
+ *  @return string of key=value&
+ */
 -(NSString*)queryString;
 @end
 
