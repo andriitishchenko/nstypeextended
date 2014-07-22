@@ -91,7 +91,7 @@
 
 -(NSString*)emptyForNil
 {
-    return self==nil?@"-":self;
+    return self==nil?@"":self;
 }
 
 -(NSDictionary*)dictionaryWithLocalJSONPathString
