@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/andriitishchenko/nstypeextended.git", :tag => "v#{s.version.to_s}" }
 
-  s.source_files  = "src/**/*.{h,m}"
+  s.source_files  = "src/*.{h,m}"
   s.exclude_files = "extendedDemo/*.*"
   s.public_headers_files = "src/*.h"
 
