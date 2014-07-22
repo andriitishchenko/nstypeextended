@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4ACA545D197F061400C7D976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACA545C197F061400C7D976 /* Main.storyboard */; };
+		4ACA5460197F063600C7D976 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACA545F197F063600C7D976 /* ViewController.m */; };
 		4AD06D1F197ED0A90037A8E8 /* NSMultiTypeExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1A197ED0A90037A8E8 /* NSMultiTypeExtended.m */; };
 		4AD06D20197ED0A90037A8E8 /* NSMultiTypeExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1A197ED0A90037A8E8 /* NSMultiTypeExtended.m */; };
 		4AD06D21197ED0A90037A8E8 /* UIButton+isSelected.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1C197ED0A90037A8E8 /* UIButton+isSelected.m */; };
@@ -51,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		4ACA545B197EFFD000C7D976 /* NSTypeExtended.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTypeExtended.h; sourceTree = "<group>"; };
+		4ACA545C197F061400C7D976 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4ACA545E197F063600C7D976 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4ACA545F197F063600C7D976 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4AD06D19197ED0A90037A8E8 /* NSMultiTypeExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMultiTypeExtended.h; sourceTree = "<group>"; };
 		4AD06D1A197ED0A90037A8E8 /* NSMultiTypeExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMultiTypeExtended.m; sourceTree = "<group>"; };
 		4AD06D1B197ED0A90037A8E8 /* UIButton+isSelected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+isSelected.h"; sourceTree = "<group>"; };
@@ -178,6 +183,9 @@
 			children = (
 				4AE76D74189F9A6E0029D605 /* AppDelegate.h */,
 				4AE76D75189F9A6E0029D605 /* AppDelegate.m */,
+				4ACA545E197F063600C7D976 /* ViewController.h */,
+				4ACA545F197F063600C7D976 /* ViewController.m */,
+				4ACA545C197F061400C7D976 /* Main.storyboard */,
 				4AE76D7A189F9A6E0029D605 /* Images.xcassets */,
 				4AE76D77189F9A6E0029D605 /* extendedDemo.xcdatamodeld */,
 				4AE76D6C189F9A6E0029D605 /* Supporting Files */,
@@ -300,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AE76DA1189F9A9F0029D605 /* LICENSE in Resources */,
+				4ACA545D197F061400C7D976 /* Main.storyboard in Resources */,
 				4AE76D70189F9A6E0029D605 /* InfoPlist.strings in Resources */,
 				4AE76DA3189F9A9F0029D605 /* README.md in Resources */,
 				4AE76D7B189F9A6E0029D605 /* Images.xcassets in Resources */,
@@ -329,6 +338,7 @@
 				4AE76D79189F9A6E0029D605 /* extendedDemo.xcdatamodeld in Sources */,
 				4AD06D2B197ED2670037A8E8 /* NSUserDefaults+Convenience.m in Sources */,
 				4AE76D76189F9A6E0029D605 /* AppDelegate.m in Sources */,
+				4ACA5460197F063600C7D976 /* ViewController.m in Sources */,
 				4AD06D2D197ED2670037A8E8 /* UITextField+UITextField_padding.m in Sources */,
 				4AD06D21197ED0A90037A8E8 /* UIButton+isSelected.m in Sources */,
 				4AE76D72189F9A6E0029D605 /* main.m in Sources */,
