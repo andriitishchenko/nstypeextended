@@ -231,7 +231,7 @@
  *
  *  @return BOOL
  */
--(BOOL)isEarlyLast:(NSInteger)days;
+-(BOOL)isEarlyLastDays:(NSInteger)days;
 
 /**
  *  Select max of 2 dates
@@ -268,6 +268,8 @@
 -(id)unArchive;
 
 -(NSDictionary*)toDictionary;
+
+-(NSString*)toMD5;
 @end
 
 @interface NSIndexPath (Extended)
