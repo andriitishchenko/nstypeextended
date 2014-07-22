@@ -26,8 +26,6 @@ Pod::Spec.new do |s|
 
   s.source_files  = "src/*.{h,m}"
   s.exclude_files = "extendedDemo/*.*"
-  s.public_headers_files = "src/*.h"
-
   s.requires_arc = true
 
 end
