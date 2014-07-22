@@ -58,11 +58,6 @@
 @end
 
 @interface UIImage (Extended)
-//also http://adcdownload.apple.com/wwdc_2013/wwdc_2013_sample_code/ios_uiimageeffects.zip
-
-- (UIImage *) toGrayscale;
-// Resize without interpolating
-- (UIImage *)resizeImageWithQuality:(CGInterpolationQuality)quality rate:(CGFloat)rate;
 
 @end
 
