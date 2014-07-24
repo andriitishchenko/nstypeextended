@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UITextField (UITextField_padding)
-
+-(CGRect)rectForBounds:(CGRect)bounds;
 @end
