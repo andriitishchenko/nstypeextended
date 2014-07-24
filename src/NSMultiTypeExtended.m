@@ -256,6 +256,10 @@
         return result;
 }
 
++(NSString*)withInteger:(NSInteger)integer{
+    return [NSString stringWithFormat:@"%ld",(long)integer ];
+}
+
 
 @end
 

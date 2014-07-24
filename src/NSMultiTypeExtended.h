@@ -193,6 +193,15 @@
  */
 -(UIImage*)generateQR;
 
+/**
+ *  NSInteger to NSString
+ *
+ *  @param integer inveger value
+ *
+ *  @return string value
+ */
++(NSString*)withInteger:(NSInteger)integer;
+
 @end
 
 @interface UIColor (Extended)
