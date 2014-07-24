@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A779EBA1981706F00AD9EA2 /* UITableView+MainThreadReload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A779EB91981706F00AD9EA2 /* UITableView+MainThreadReload.m */; };
 		4ACA545D197F061400C7D976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACA545C197F061400C7D976 /* Main.storyboard */; };
 		4ACA5460197F063600C7D976 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACA545F197F063600C7D976 /* ViewController.m */; };
 		4AD06D1F197ED0A90037A8E8 /* NSMultiTypeExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD06D1A197ED0A90037A8E8 /* NSMultiTypeExtended.m */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A779EB81981706F00AD9EA2 /* UITableView+MainThreadReload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MainThreadReload.h"; sourceTree = "<group>"; };
+		4A779EB91981706F00AD9EA2 /* UITableView+MainThreadReload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MainThreadReload.m"; sourceTree = "<group>"; };
 		4ACA545B197EFFD000C7D976 /* NSTypeExtended.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTypeExtended.h; sourceTree = "<group>"; };
 		4ACA545C197F061400C7D976 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4ACA545E197F063600C7D976 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				4AD06D31197ED9D20037A8E8 /* UIImage+sizing.h */,
 				4AD06D32197ED9D20037A8E8 /* UIImage+sizing.m */,
 				4ACA545B197EFFD000C7D976 /* NSTypeExtended.h */,
+				4A779EB81981706F00AD9EA2 /* UITableView+MainThreadReload.h */,
+				4A779EB91981706F00AD9EA2 /* UITableView+MainThreadReload.m */,
 			);
 			name = src;
 			path = ../src;
@@ -343,6 +348,7 @@
 				4AD06D21197ED0A90037A8E8 /* UIButton+isSelected.m in Sources */,
 				4AE76D72189F9A6E0029D605 /* main.m in Sources */,
 				4AD06D1F197ED0A90037A8E8 /* NSMultiTypeExtended.m in Sources */,
+				4A779EBA1981706F00AD9EA2 /* UITableView+MainThreadReload.m in Sources */,
 				4AD06D23197ED0A90037A8E8 /* UIViewController+ViewControllerCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
