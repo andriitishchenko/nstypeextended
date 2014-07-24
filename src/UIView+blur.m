@@ -44,7 +44,7 @@
     [snapshotImage drawAtPoint:CGPointMake(rect2.origin.x,-rect2.origin.y)];
     blurredSnapshotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    UIColor *tintColor = [UIColor colorWithRed:100 green:100 blue:100 alpha:0.5];
+    UIColor *tintColor = [UIColor colorWithRed:100/255.0 green:100/255.0 blue:100/255.0 alpha:0.5];
      blurredSnapshotImage = [blurredSnapshotImage applyBlurWithRadius:9.0 tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
     return blurredSnapshotImage;
 }
