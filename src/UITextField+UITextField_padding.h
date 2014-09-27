@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UITextField (UITextField_padding)
--(CGRect)rectForBounds:(CGRect)bounds;
+@property (nonatomic,setter = setPaddingVertical:) CGFloat paddingVertical;
+@property (nonatomic,setter = setPaddingHorizontal:) CGFloat paddingHorizontal;
+//-(CGRect)rectForBounds:(CGRect)bounds;
 @end

@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.fextFieldPadding05.paddingHorizontal = 5.0f;
+    
+    self.fextFieldPadding5.paddingHorizontal = 5.0f;
+    self.fextFieldPadding5.paddingHorizontal = 5.0f;
 }
 
 - (void)didReceiveMemoryWarning

@@ -15,8 +15,9 @@
 // Resize without interpolating
 - (UIImage *)resizeImageWithQuality:(CGInterpolationQuality)quality rate:(CGFloat)rate;
 - (UIImage *)imageByCroppingSquareWithSize:(CGSize)size;
-+ (UIImage*)getScreenshot;
-- (UIImage*)getSubimageWithRect:(CGRect)rect;
++ (UIImage *)getScreenshot;
+- (UIImage *)getSubimageWithRect:(CGRect)rect;
 - (UIImage *)normalizedImage;
 - (UIImage *)fixOrientation;
+- (UIImage *)imageByScalingAndCroppingForSize:(CGSize)targetSize;
 @end
