@@ -360,6 +360,18 @@
     [dateFormatter setDateFormat:format];
     return [dateFormatter stringFromDate:self];
 }
+- (NSInteger)daysBetweenDate:(NSDate*)enddate
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSInteger startDay=[calendar ordinalityOfUnit:NSDayCalendarUnit
+                                           inUnit:NSEraCalendarUnit
+                                          forDate:self];
+    NSInteger endDay=[calendar ordinalityOfUnit:NSDayCalendarUnit
+                                         inUnit:NSEraCalendarUnit
+                                        forDate:enddate];
+    calendar =nil;
+    return labs(endDay-startDay);
+}
 
 @end
 

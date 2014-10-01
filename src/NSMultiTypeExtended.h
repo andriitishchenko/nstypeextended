@@ -270,6 +270,16 @@
  *  @return string
  */
 - (NSString *) toStringWithFormat:(NSString*)format;
+
+/**
+ *  days between dates
+ *
+ *  @param date and date
+ *
+ *  @return NSinteger
+ */
+- (NSInteger)daysBetweenDate:(NSDate*)enddate;
+
 @end
 
 @interface NSData (Extended)

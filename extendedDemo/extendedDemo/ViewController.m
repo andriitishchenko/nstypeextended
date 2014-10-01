@@ -31,6 +31,17 @@
     
     self.fextFieldPadding5.paddingHorizontal = 5.0f;
     self.fextFieldPadding5.paddingHorizontal = 5.0f;
+    
+    NSDate*date = [NSDate date];
+    NSInteger diff1 = [date daysBetweenDate:[NSDate date]];
+
+    NSDate *newDate2 = [date dateByAddingTimeInterval:60*60*24*1];
+    NSInteger diff2 = [date daysBetweenDate:newDate2];
+
+    NSDate *newDate3 = [date dateByAddingTimeInterval:60*60*24*10];
+    NSInteger diff3 = [date daysBetweenDate:newDate3];
+
+    
 }
 
 - (void)didReceiveMemoryWarning
