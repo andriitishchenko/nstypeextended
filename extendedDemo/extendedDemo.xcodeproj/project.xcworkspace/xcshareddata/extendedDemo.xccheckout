@@ -14,7 +14,7 @@
 		<string>https://github.com/andriitishchenko/nstypeextended.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>extendedDemo/extendedDemo.xcodeproj/project.xcworkspace</string>
+	<string>extendedDemo/extendedDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3B51AC16EC8788098EFBF644EDF134F244F6D786</key>

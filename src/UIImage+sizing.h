@@ -20,4 +20,5 @@
 - (UIImage *)normalizedImage;
 - (UIImage *)fixOrientation;
 - (UIImage *)imageByScalingAndCroppingForSize:(CGSize)targetSize;
+-(UIImage*)rectImageForSize:(CGFloat)size;
 @end

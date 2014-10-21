@@ -27,6 +27,21 @@
 	return resized;
 }
 
+-(UIImage*)rectImageForSize:(CGFloat)size
+{
+    CGSize outSize = (CGSize){size,size};
+    UIImage *rectImage;
+    
+    CGFloat rate = size/ MAX(self.size.height, self.size.width);
+    UIImage* res = [self resizeImageWithQuality:kCGInterpolationNone rate:rate];
+    
+    UIGraphicsBeginImageContext(outSize);
+    [res drawInRect:CGRectMake((size - res.size.width)*0.5, (size - res.size.height)*0.5, res.size.width, res.size.height)];
+    rectImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return rectImage;
+}
+
 - (UIImage *) toGrayscale{
     const int RED = 1;
     const int GREEN = 2;
